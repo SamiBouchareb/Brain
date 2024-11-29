@@ -12,13 +12,22 @@ import { useHoverCursor } from './hooks/useHoverCursor';
 function App() {
   useHoverCursor();
   const [currentView, setCurrentView] = useState('training');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div className="flex h-screen bg-gray-50">
-      <Sidebar onNavChange={setCurrentView} currentView={currentView} />
+      <Sidebar 
+        onNavChange={setCurrentView} 
+        currentView={currentView} 
+        isMobileMenuOpen={isMobileMenuOpen}
+        onMobileMenuToggle={setIsMobileMenuOpen}
+      />
       
       <div className="flex-1 flex flex-col overflow-hidden">
-        <Header />
+        <Header 
+          onMobileMenuToggle={setIsMobileMenuOpen}
+          username="John" 
+        />
         
         <main className="flex-1 overflow-y-auto">
           {currentView === 'training' ? (
