@@ -1,0 +1,35 @@
+/* Custom cursor styles */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 2px solid rgb(99, 102, 241);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out, background-color 0.15s ease-out;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(4px);
+}
+
+.custom-cursor.hover {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: rgba(99, 102, 241, 0.3);
+  border-color: rgb(79, 82, 221);
+}
+
+/* Hide default cursor when custom cursor is active */
+body {
+  cursor: none;
+}
+
+/* Show default cursor on text inputs */
+input, textarea, [contenteditable="true"] {
+  cursor: text;
+}
+
+/* Show pointer cursor on interactive elements */
+a, button, [role="button"] {
+  cursor: none;
+}
